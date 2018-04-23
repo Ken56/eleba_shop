@@ -18,11 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('password');
-            $table->string('status');
+            $table->string('status')->default(0);
             $table->string('remember_token');
             $table->timestamps();
             $table->integer('shop_id')->unsigned();
             $table->foreign('shop_id')->references('id')->on('shops');
+            $table->engine='InnoDB';
         });
     }
 

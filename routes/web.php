@@ -24,4 +24,12 @@ Route::post('updatepwd_save', 'ShopController@update_pwd')->name('updatepwd_save
 Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
+//>>商户---菜品分类
+Route::resource('food_category','FoodCategoryController');
+Route::get('foodcategory/{FoodCategory}/is_selected','FoodCategoryController@is_selected')->name('is_selected');
+//商户--菜品管理
+Route::resource('food_menu','FoodMenuController');
+//================>>商家专用图片上传
+Route::post('/upload','UploaderController@upload');
+
 

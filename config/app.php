@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        AliyunOss\Laravel\AliyunOssServiceProvider::class,//阿里云oss配置
 
         /*
          * Package Service Providers...
@@ -225,6 +226,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'OSS' => AliyunOss\Laravel\AliyunOssFacade::class,//阿里云oss配置
 
     ],
 

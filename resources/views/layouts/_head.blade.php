@@ -11,17 +11,17 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#"><img src="./Uploads/favicon.ico" width="20px;" alt=""></a>
-            <a class="navbar-brand" href="">平台管理系统</a>
+            <a class="navbar-brand" href="">商铺管理系统</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href=""><span class="glyphicon glyphicon-tint
-"></span>套餐管理</a></li>
+                <li><a href="{{route('food_category.index')}}"><span class="glyphicon glyphicon-list-alt
+"></span>菜品分类</a></li>
                 <li class="dropdown">
-                <li><a href=""><span class="glyphicon glyphicon-tint
-"></span>会员管理</a></li>
+                <li><a href="{{route('food_menu.index')}}"><span class="glyphicon glyphicon-apple
+"></span>菜品管理</a></li>
                 <li class="active"><a href=""><span class="glyphicon glyphicon-star-empty"></span>消费记录 <span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-time

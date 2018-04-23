@@ -20,17 +20,21 @@
     <![endif]-->
 </head>
 <body>
+
 @include('layouts._head')
 @include('layouts._message')
 @include('layouts._error')
-
+<link rel="stylesheet" type="text/css" href="/webuploader/webuploader.css">
 <!--yyc自定义内容-->
 @yield('content')
 
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-<script src="js/jquery-3.2.1.js"></script>
+<script src="/js/jquery-3.2.1.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-<script src="js/bootstrap.js"></script>
+<script src="/js/bootstrap.js"></script>
+<!--引入JS-->
+<script type="text/javascript" src="/webuploader/webuploader.js"></script>
+
 @yield('js')
 </body>
 </html>
