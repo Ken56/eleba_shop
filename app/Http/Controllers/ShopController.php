@@ -14,10 +14,10 @@ class ShopController extends Controller
 {
     //登录权限
     public function __construct(){
-        //游客权限--黑名单
-        $this->middleware('auth',['except'=>['create','store']]);
-        //用户权限-白名单
-        $this->middleware('guest',['only'=>'create']);
+        //未登录的用户只能做什么
+        $this->middleware('auth',['except'=>['']]);
+        //让只能是未登录的用户访问的页面
+//        $this->middleware('guest',['only' => ['create']]);
     }
 
     //商家个人中心

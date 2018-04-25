@@ -31,5 +31,11 @@ Route::get('foodcategory/{FoodCategory}/is_selected','FoodCategoryController@is_
 Route::resource('food_menu','FoodMenuController');
 //================>>商家专用图片上传
 Route::post('/upload','UploaderController@upload');
+//审核不过的界面
+Route::get('shenghe',function (){
+    return view('sessions.shenhebuguo');
+})->name('shenghe');
+//>>平台活动管理
+Route::resource('/activity','ActivityController');
 
 

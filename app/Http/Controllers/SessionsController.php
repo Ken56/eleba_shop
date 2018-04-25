@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
+    //登录权限
+    public function __construct(){
+        //未登录的用户只能做什么
+        $this->middleware('auth',['except'=>['create']]);
+        //让只能是未登录的用户访问的页面
+        $this->middleware('guest',['only' => ['login']]);
+    }
+
+
     //登录表单
     public function create(){
         return view('sessions.create');
@@ -25,8 +34,14 @@ class SessionsController extends Controller
             'captcha.captcha'=>'验证码必须正确',
         ]);
         if(Auth::attempt(['name'=>$request->name,'password'=>$request->password],$request->has('remember'))){
-            session()->flash('success','登录成功,欢迎回来');
-            return redirect()->route('shop.index');
+
+            if(Auth::user()->status==1){
+                return redirect()->route('shenghe');
+            }else{
+                session()->flash('success','登录成功,欢迎回来');
+                return redirect()->route('shop.index');
+            }
+
         }else{
             session()->flash('success','登录失败,请重新登录');
             return redirect()->route('login');
