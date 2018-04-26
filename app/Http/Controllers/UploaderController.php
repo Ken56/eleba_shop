@@ -12,6 +12,7 @@ class UploaderController extends Controller
 {
     //上传图片
     public function upload(Request $request){
+
         $fileName=$request->file('file')->store($request->file_dir);
         $client = App::make('aliyun-oss');
         try{

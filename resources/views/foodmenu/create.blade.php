@@ -54,6 +54,7 @@
                         <div id="fileList" class="uploader-list"></div>
                         <div id="filePicker">选择图片</div>
                         <img src="" alt="" id="imgx" width="150px;" >
+                        <input type="hidden" name="shop_img" value="" id="tj">
                     </div>
                     <br/>
 
@@ -71,8 +72,6 @@
                     <textarea class="form-control" rows="3" name="description" placeholder="菜品分类描述"></textarea>
                 </div>--}}
 
-
-                <input type="hidden" name="shop_img" value="" id="tj">
                 <button type="submit" class="btn btn-primary">提交</button>
                 {{csrf_field()}}
             </form>
