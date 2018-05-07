@@ -22,27 +22,25 @@
                 <li class="dropdown">
                 <li><a href="{{route('food_menu.index')}}"><span class="glyphicon glyphicon-apple
 "></span>菜品管理</a></li>
-                <li class="active"><a href="{{route('activity.index')}}"><span class="glyphicon glyphicon-heart"></span>活动管理 <span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="{{route('activity.index')}}"><span class="glyphicon glyphicon-heart"></span>活动管理 <span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="{{route('order.index')}}"><span class="glyphicon glyphicon-usd"></span>订单管理 <span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="{{route('dingdan')}}"><span class="glyphicon glyphicon-list-alt"></span>订单量统计 <span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="{{route('caipin')}}"><span class="glyphicon glyphicon-list-alt"></span>菜品统计 <span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-time
-"></span>时间 <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-yen
+"></span>抽奖活动 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">菜单一</a></li>
-                        <li><a href="#">菜单二</a></li>
-                        <li><a href="#">菜单三</a></li>
+                        <li><a href="{{route('events.index')}}">查看抽奖活动</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">特列一</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">特列二</a></li>
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left" action="" method="get">
+            {{--<form class="navbar-form navbar-left" action="" method="get">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="搜索" name="keyword">
                 </div>
                 <button type="submit" class="btn btn-default">搜索</button>
-            </form>
+            </form>--}}
             <ul class="nav navbar-nav navbar-right">
                 @guest
                 <li><a href="{{route('shop.create')}}">商家注册</a></li>

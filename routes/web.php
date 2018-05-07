@@ -15,6 +15,10 @@
     return view('welcome');
 });*/
 
+Route::get('/', function () {
+    return view('yyc_home.home');
+});
+
 //>>商户---注册页面
 Route::resource('shop','ShopController');
 //>>商户修改密码
@@ -37,5 +41,18 @@ Route::get('shenghe',function (){
 })->name('shenghe');
 //>>平台活动管理
 Route::resource('/activity','ActivityController');
+//商户端- 订单管理
+Route::resource('/order','OrderController');
+//订单发货
+Route::get('order/{order}/fahuo','OrderController@fahuo')->name('fahuo');
+//订单量统计
+Route::get('/dingdan','OrderController@dingdan')->name('dingdan');
+//订单量统计
+Route::get('/caipin','OrderController@caipin')->name('caipin');
+//抽奖报名查看
+Route::resource('/events','EventsController');
+//抽奖提交报名
+Route::get('events/{event}/baoming','EventsController@baoming')->name('baoming');
+
 
 

@@ -60,7 +60,7 @@ class FoodCategoryController extends Controller
             'name'=>$request->name,
             'description'=>$request->description,
             'is_selected'=>0,
-            'type_accumulation'=>'c1',
+            'type_accumulation'=>'c'.$request->id,
             'shop_id'=>$shop_id,
         ]);
         session()->flash('sussecc','菜品分类添加成功');
