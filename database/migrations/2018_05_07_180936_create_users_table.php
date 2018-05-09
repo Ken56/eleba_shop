@@ -15,14 +15,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('phone');
-            $table->string('password');
-            $table->string('status')->default(0);
-            $table->string('remember_token');
-            $table->timestamps();
+            $table->string('name')->comment('商家名字');
+            $table->string('password')->comment('密码');
+            $table->tinyInteger('status')->default(0)->comment('状态');
+            $table->integer('tel')->comment('电话');
+            $table->string('email')->comment('邮箱');
             $table->integer('shop_id')->unsigned();
             $table->foreign('shop_id')->references('id')->on('shops');
+            $table->rememberToken();
+            $table->timestamps();
             $table->engine='InnoDB';
         });
     }

@@ -24,16 +24,19 @@ class FoodMenuController extends Controller
 
     //菜品分类主页
     public function index(Request $request){
-        $fenye=$request->query();
-        $keyword=$request->query();
-        $wheres=[
-            ['shop_id','=',Auth::user()->shop_id],
-        ];
-        if($keyword){
-            $wheres[]=['name','like',"%{$keyword}%"];
-        }
-        $FoodMenus=FoodMenu::where($wheres)->paginate(4);
-        return view('foodmenu.index',compact('FoodMenus','fenye'));
+//        $fenye=$request->query();
+//        $keyword=$request->query();
+//        $wheres=[
+//            ['shop_id','=',Auth::user()->shop_id],
+//        ];
+//        if($keyword){
+//            $wheres[]=['name','like',"%{$keyword}%"];
+//        }
+//        $FoodMenus=FoodMenu::where($wheres)->paginate(4);
+//        return view('foodmenu.index',compact('FoodMenus','fenye'));
+
+        $FoodMenus=FoodMenu::where('shop_id','=',Auth::user()->shop_id)->paginate(3);
+        return view('foodmenu.index',compact('FoodMenus'));
     }
 
     //>>添加菜品
@@ -158,5 +161,17 @@ class FoodMenuController extends Controller
         return redirect()->route('food_menu.index');
 
     }
+
+    //菜品删除
+    public function destroy (FoodMenu $FoodMenu){
+        $FoodMenu->delete();
+        return redirect()->route('food_menu.index');
+    }
+
+    //菜谱详情查看
+    public function show(FoodMenu $FoodMenu){
+        return redirect()->route('food_menu.show',compact('FoodMenu'));
+    }
+
 
 }

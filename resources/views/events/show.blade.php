@@ -47,7 +47,12 @@
         </div>
 
 
-        <div class="col-lg-2"></div>
+        <div class="col-lg-2">
+            <h1 style="color: red">中奖名单</h1>
+            @foreach($zhongjiangs as $zhongjiang)
+            <h4>中奖者:{{$zhongjiang->user->name}}</h4>
+            @endforeach
+        </div>
     </div>
 
 @stop()

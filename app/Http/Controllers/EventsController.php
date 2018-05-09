@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event_Members;
 use App\Models\Events;
+use App\Models\Prize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +26,9 @@ class EventsController extends Controller
         $man_count=DB::table('event_members')->where(['events_id'=>$event->id])->count();
         //判断是否报名
         $user_count=DB::table('event_members')->where(['events_id'=>$event->id],['member_id'=>$user_id])->count();
-        return view('events.show',compact('event','user_count','man_count'));
+        //中奖名单
+        $zhongjiangs=Prize::where('events_id',$event->id)->get();
+        return view('events.show',compact('event','user_count','man_count','zhongjiangs'));
     }
 
     //商家报名

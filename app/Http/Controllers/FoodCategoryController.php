@@ -23,28 +23,29 @@ class FoodCategoryController extends Controller
 
     //菜品分类主页
     public function index(Request $request){
-        $fenye=$request->query();
-        $keyword=$request->query();
-        $wheres=[
-            ['shop_id','=',Auth::user()->shop_id],
-        ];
-        if($keyword){
-            $wheres[]=['name','like',"%{$keyword}%"];
-        }
-        $FoodCategorys=FoodCategory::where($wheres)->paginate(4);
-        return view('food.index',compact('FoodCategorys','fenye'));
+//        $fenye=$request->query();
+//        $keyword=$request->query();
+//        $wheres=[
+//            ['shop_id','=',Auth::user()->shop_id],
+//        ];
+//        if($keyword){
+//            $wheres[]=['name','like',"%{$keyword}%"];
+//        }
+//        $FoodCategorys=FoodCategory::where($wheres)->paginate(4);
+//        return view('food.index',compact('FoodCategorys','fenye'));
+
+
+        $FoodCategorys=FoodCategory::where('shop_id','=',Auth::user()->shop_id)->paginate(7);
+        return view('food.index',compact('FoodCategorys'));
     }
 
     //>>添加菜品分类
     public function create(){
-        /*$id=Auth::user()->shop_id;//我的意思是只能查询自己的店铺
-        $shops = DB::table('shops')->where('id',$id)->get();*/
         return view('food.create');
     }
 
     //>>添加保存菜品分类
     public function store(Request $request){
-//        var_dump($request->description);die;
         //基础验证
         $this->validate($request,[
             'name'=>'required',
@@ -53,14 +54,14 @@ class FoodCategoryController extends Controller
             'name.required'=>'分类名称不能为空',
             'description.required'=>'描述不能为空',
         ]);
-        //获取shop_id
+
         $shop_id=Auth::user()->shop_id;
         //保存到数据库
         FoodCategory::create([
             'name'=>$request->name,
             'description'=>$request->description,
             'is_selected'=>0,
-            'type_accumulation'=>'c'.$request->id,
+            'type_accumulation'=>'c'.$shop_id,
             'shop_id'=>$shop_id,
         ]);
         session()->flash('sussecc','菜品分类添加成功');
@@ -69,9 +70,6 @@ class FoodCategoryController extends Controller
 
     //修改回显
     public function edit(FoodCategory $FoodCategory){
-//        var_dump($FoodCategory);die;
-//        $foods=FoodCategory::find($food);
-//        var_dump($foods);die;
         return view('food.edit',compact('FoodCategory'));
     }
 
@@ -92,13 +90,16 @@ class FoodCategoryController extends Controller
             'name'=>$request->name,
             'description'=>$request->description,
             'is_selected'=>0,
-            'type_accumulation'=>'c1',
+            'type_accumulation'=>'c'.$shop_id,
             'shop_id'=>$shop_id,
         ]);
+        session()->flash('sussecc','菜品分类修改成功');
+        return redirect()->route('food_category.index');
+
 
     }
 
-    //>>设置默认分类
+    //>>右边那个按钮--设置默认分类
     public function is_selected(FoodCategory $FoodCategory){
         DB::table('food_category')->update([
             'is_selected'=>'0',
@@ -109,10 +110,11 @@ class FoodCategoryController extends Controller
         ]);
         return redirect()->route('food_category.index');
     }
-    /*//显示本店的菜谱
-    public function show(FoodMenu $num){
 
-        return view('food.show',compact('num'));
-    }*/
+    //菜品分类删除
+    public function destroy (FoodCategory $FoodCategory){
+        $FoodCategory->delete();
+        return redirect()->route('food_category.index');
+    }
 
 }

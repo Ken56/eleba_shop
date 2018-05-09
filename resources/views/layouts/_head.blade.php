@@ -17,11 +17,26 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="{{route('food_category.index')}}"><span class="glyphicon glyphicon-list-alt
-"></span>菜品分类</a></li>
                 <li class="dropdown">
-                <li><a href="{{route('food_menu.index')}}"><span class="glyphicon glyphicon-apple
-"></span>菜品管理</a></li>
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon-list-alt" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 菜品分类 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('food_category.create')}}">菜品分类添加</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{route('food_category.index')}}">菜品分类管理</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon glyphicon-apple" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 菜品管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('food_menu.create')}}">菜品分类添加</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{route('food_menu.index')}}">菜品分类管理</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+
                 <li class=""><a href="{{route('activity.index')}}"><span class="glyphicon glyphicon-heart"></span>活动管理 <span class="sr-only">(current)</span></a></li>
                 <li class=""><a href="{{route('order.index')}}"><span class="glyphicon glyphicon-usd"></span>订单管理 <span class="sr-only">(current)</span></a></li>
                 <li class=""><a href="{{route('dingdan')}}"><span class="glyphicon glyphicon-list-alt"></span>订单量统计 <span class="sr-only">(current)</span></a></li>
@@ -47,7 +62,7 @@
                 <li><a href="{{route('login')}}">登录</a></li>
                 @endguest
                 @auth
-                <li><img class="img-thumbnail" width="70px;" src="" alt=""></li>
+                {{--<li><img class="img-thumbnail" width="70px;" src="" alt=""></li>--}}
                 <li class="dropdown">
                     <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{\Illuminate\Support\Facades\Auth::user()->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">

@@ -35,7 +35,7 @@ class SessionsController extends Controller
         ]);
         if(Auth::attempt(['name'=>$request->name,'password'=>$request->password],$request->has('remember'))){
 
-            if(Auth::user()->status==1){
+            if(Auth::user()->status==0){
                 return redirect()->route('shenghe');
             }else{
                 session()->flash('success','登录成功,欢迎回来');
