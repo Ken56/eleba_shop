@@ -7,9 +7,6 @@
         <div class="col-lg-12">
             <table class="table table-bordered container-fluid" style="text-align: center" id="jsx">
                 <tr>
-                    <td><a href="" class="btn btn-info">添加</a></td>
-                </tr>
-                <tr>
                     <td>ID</td>
                     <td>订单流水号</td>
                     <td>下单时间</td>
@@ -68,7 +65,7 @@
                     </tr>
                 @endforeach
             </table>
-            {{$orders->appends($fenye)->links()}}
+            {{$orders->links()}}
         </div>
 
     </div>

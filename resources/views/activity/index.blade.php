@@ -2,9 +2,9 @@
 @section('title','商家分类管理')
 @section('content')
     <table class="table table-bordered container-fluid" style="text-align: center" id="jsx">
-        <tr>
-            <td><a href="{{route('activity.create')}}" class="btn btn-info">添加</a></td>
-        </tr>
+        {{--<tr>--}}
+            {{--<td><a href="{{route('activity.create')}}" class="btn btn-info">添加</a></td>--}}
+        {{--</tr>--}}
         <tr>
             <td>ID</td>
             <td>活动标题</td>
@@ -17,18 +17,18 @@
         <tr data-id="{{ $activity->id }}">
             <td>{{$activity->id}}</td>
             <td>{{$activity->title}}</td>
-            <td>{{$activity->fabu}}</td>
+            <td>{{date('Y-m-d',$activity->fabu)}}</td>
             <td>{{date('Y-m-d',$activity->start)}}</td>
             <td>{{date('Y-m-d',$activity->end)}}</td>
             <td>
                 <a href="{{route('activity.show',['activity'=>$activity])}}" class="btn btn-primary">查看</a>
-                <a href="{{route('activity.edit',['activity'=>$activity])}}" class="btn btn-warning">修改</a>
-                <button class="btn btn-danger" >删除</button>
+                {{--<a href="{{route('activity.edit',['activity'=>$activity])}}" class="btn btn-warning">修改</a>--}}
+                {{--<button class="btn btn-danger" >删除</button>--}}
             </td>
         </tr>
         @endforeach
     </table>
-    {{$activitys->appends($fenye)->links()}}
+    {{$activitys->links()}}
 @stop()
 
 @section('js')

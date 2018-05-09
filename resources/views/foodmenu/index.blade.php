@@ -16,8 +16,6 @@
                 <td>月销售量</td>
                 <td>评分级</td>
                 <td>菜品提示</td>
-                <td>满足计数</td>
-                <td>满足率</td>
                 <td>操作</td>
             </tr>
             @foreach($FoodMenus as $FoodMenu)
@@ -30,8 +28,6 @@
                     <td>{{$FoodMenu->month_sales}}</td>
                     <td>{{$FoodMenu->rating_count}}</td>
                     <td>{{$FoodMenu->tips}}</td>
-                    <td>{{$FoodMenu->satisfy_count}}</td>
-                    <td>{{$FoodMenu->satisfy_rate}}</td>
                     <td>
                         <a href="{{route('food_menu.show',['FoodMenu'=>$FoodMenu->id])}}" class="btn btn-primary">查看</a>
                         <a href="{{route('food_menu.edit',['FoodMenu'=>$FoodMenu->id])}}" class="btn btn-warning">修改</a>
@@ -56,7 +52,7 @@
                 var id = tr.data('id');
                 $.ajax({
                     type: "DELETE",
-                    url: 'category/'+id,
+                    url: 'food_menu/'+id,
                     data: '_token={{ csrf_token() }}',
                     success: function(msg){
                         tr.fadeOut();

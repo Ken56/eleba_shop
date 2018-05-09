@@ -16,6 +16,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            @auth
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle glyphicon glyphicon-list-alt" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 菜品分类 <span class="caret"></span></a>
@@ -37,10 +38,36 @@
                     </ul>
                 </li>
 
-                <li class=""><a href="{{route('activity.index')}}"><span class="glyphicon glyphicon-heart"></span>活动管理 <span class="sr-only">(current)</span></a></li>
-                <li class=""><a href="{{route('order.index')}}"><span class="glyphicon glyphicon-usd"></span>订单管理 <span class="sr-only">(current)</span></a></li>
-                <li class=""><a href="{{route('dingdan')}}"><span class="glyphicon glyphicon-list-alt"></span>订单量统计 <span class="sr-only">(current)</span></a></li>
-                <li class=""><a href="{{route('caipin')}}"><span class="glyphicon glyphicon-list-alt"></span>菜品统计 <span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon-heart" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 活动管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {{--<li><a href="{{route('activity.create')}}">活动添加</a></li>--}}
+                        {{--<li role="separator" class="divider"></li>--}}
+                        <li><a href="{{route('activity.index')}}">活动查看</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon glyphicon-usd" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 订单管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('order.index')}}">订单查看</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon-list-alt" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 订单&菜品统计 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('dingdan')}}">订单量查看</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{route('caipin')}}">菜品统计查看</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+
+
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-yen
 "></span>抽奖活动 <span class="caret"></span></a>
@@ -50,6 +77,7 @@
                     </ul>
                 </li>
             </ul>
+            @endauth
             {{--<form class="navbar-form navbar-left" action="" method="get">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="搜索" name="keyword">

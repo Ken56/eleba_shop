@@ -15,15 +15,8 @@ class OrderController extends Controller
 {
     //商家管理订单
     public function index(Request $request){
-        $fenye=$request->query();
-        $keyword=$request->query();
-        $wheres=[
-            ['shop_id','=',Auth::user()->shop_id],
-        ];
-        if($keyword){
-            $wheres[]=['name','like',"%{$keyword}%"];
-        }
-        $orders=Order::where($wheres)->paginate(4);
+        $user_id=Auth::user()->shop_id;
+        $orders=Order::where('shop_id',$user_id)->paginate(4);
         foreach ($orders as $order){
             $order_goods=Order_Goods::where('order_id',$order->id)->get();
             $order->food=$order_goods;
@@ -31,7 +24,7 @@ class OrderController extends Controller
                 $order->price+=$goods_price['goods_price']*$goods_price['amount'];
             }
         }
-        return view('order.index',compact('orders','fenye'));
+        return view('order.index',compact('orders'));
     }
 
     //查看订单

@@ -1,42 +1,50 @@
 @extends('layouts.default')
-@section('title','订单详情')
+@section('title','菜谱详情')
 @section('content')
     <div class="container-fluid">
         <table class="table table-bordered">
             <tr class="info">
-                <td>菜品名称</td>
+                <td>订单名称</td>
                 <td>详细说明</td>
             </tr>
             <tr>
-                <td>订单ID</td>
-                <td>{{$order->id}}</td>
+                <td>菜品名称</td>
+                <td>{{$FoodMenu->goods_name}}</td>
             </tr>
             <tr>
-                <td >订单流水号</td>
-                <td>{{$order->order_code}}</td>
+                <td >评分</td>
+                <td>{{$FoodMenu->rating}}</td>
             </tr>
             <tr>
-                <td >下单时间</td>
-                <td>{{date('Y-m-d,H:i:s',$order->order_birth_time)}}</td>
+                <td >菜品价格</td>
+                <td>{{$FoodMenu->goods_price}}</td>
             </tr>
             <tr>
-                <td>店铺名称</td>
-                <td>{{$order->shop_name}}</td>
+                <td >月销量</td>
+                <td>{{$FoodMenu->month_sales}}</td>
             </tr>
             <tr>
-                <td>收货地址</td>
-                <td>{{$order->provence.'省'}}{{$order->city.'市'}}{{$order->area.'区'}}-详细地址:{{$order->detail_address}}</td>
+                <td >评级数</td>
+                <td>{{$FoodMenu->rating_count}}</td>
             </tr>
             <tr>
-                <td >收货人</td>
-                <td>{{$order->name}}</td>
+                <td >提示</td>
+                <td>{{$FoodMenu->tips}}</td>
             </tr>
             <tr>
-                <td>联系方式</td>
-                <td>{{$order->tel}}</td>
+                <td >满足计数</td>
+                <td>{{$FoodMenu->satisfy_count}}</td>
+            </tr>
+            <tr>
+                <td >满足率</td>
+                <td>{{$FoodMenu->satisfy_rate}}</td>
+            </tr>
+            <tr>
+                <td >满足率</td>
+                <td>{{$FoodMenu->satisfy_rate}}</td>
             </tr>
         </table>
-        <a href="{{route('order.index')}}" type="button" class="btn btn-primary">返回订单列表</a>
+        <a href="{{route('food_menu.index')}}" type="button" class="btn btn-primary">返回订单列表</a>
     </div>
 @stop()
 

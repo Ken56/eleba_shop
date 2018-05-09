@@ -15,7 +15,10 @@ class EventsController extends Controller
     public function index(){
 
         $events=Events::paginate(4);
-
+        //页面静态化 render()的作用是将view页面对象转换成字符串类型
+//        $content=view('events.index',compact('events'))->render();
+//        file_put_contents('list.html',$content);
+//        return view('list');
         return view('events.index',compact('events'));
     }
 

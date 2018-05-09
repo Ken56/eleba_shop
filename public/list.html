@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <!--yyc自定义标题-->
+    <title>抽奖活动管理</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<!--导航栏-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <!-- 登录按钮 -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="./Uploads/favicon.ico" width="20px;" alt=""></a>
+            <a class="navbar-brand" href="">商铺管理系统</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon-list-alt" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 菜品分类 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://shop.eleba.com/food_category/create">菜品分类添加</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="http://shop.eleba.com/food_category">菜品分类管理</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon glyphicon-apple" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 菜品管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://shop.eleba.com/food_menu/create">菜品分类添加</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="http://shop.eleba.com/food_menu">菜品分类管理</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon-heart" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 活动管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="http://shop.eleba.com/activity">活动查看</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon glyphicon-usd" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 订单管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://shop.eleba.com/order">订单查看</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon-list-alt" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 订单&菜品统计 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://shop.eleba.com/dingdan">订单量查看</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="http://shop.eleba.com/caipin">菜品统计查看</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-yen
+"></span>抽奖活动 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://shop.eleba.com/events">查看抽奖活动</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+            </ul>
+                        
+            <ul class="nav navbar-nav navbar-right">
+                                                
+                <li class="dropdown">
+                    <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">yyf <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li data-toggle="modal" data-target="#login" id="login_name">
+                            <a href="http://shop.eleba.com/updatepwd">修改密码</a>
+                        </li>
+                        <li data-toggle="modal" data-target="#login" id="login_name">
+                            <form action="http://shop.eleba.com/logout" method="post">
+                                <button class="btn btn-link">注销</button>
+                                <input type="hidden" name="_token" value="XlxQcVkbku1Lv45NLScLQOupW3UfIP6ibGhqzoRE">
+                                <input type="hidden" name="_method" value="DELETE">
+                            </form>
+                        </li>
+
+                    </ul>
+                </li>
+                            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--webuploader-->
+<link rel="stylesheet" type="text/css" href="/webuploader/webuploader.css">
+<!--yyc自定义内容-->
+    <table class="table table-bordered container-fluid" style="text-align: center" id="jsx">
+        <tr>
+            <td>ID</td>
+            <td>活动标题</td>
+            <td>开始时间</td>
+            <td>结束时间</td>
+            <td>开奖日期</td>
+            <td>报名人数限制</td>
+            <td>是否已开奖</td>
+            <td>操作</td>
+        </tr>
+                <tr data-id="3">
+            <td>3</td>
+            <td>赠送泰坦显卡</td>
+            <td>2018-05-07</td>
+            <td>2018-05-13</td>
+            <td>2018-05-23</td>
+            <td>2</td>
+            <td>已开奖</td>
+            <td>
+                <a href="http://shop.eleba.com/events/3" class="btn btn-primary">查看详情</a>
+            </td>
+        </tr>
+            </table>
+    
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="/js/jquery-3.2.1.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="/js/bootstrap.js"></script>
+<!--webuploader-->
+<script type="text/javascript" src="/webuploader/webuploader.js"></script>
+
+    <script>
+        $("#jsx .btn-danger").click(function(){
+            //二次确认
+            if(confirm('确认删除该数据吗?删除后不可恢复!')){
+                var tr = $(this).closest('tr');
+                var id = tr.data('id');
+                $.ajax({
+                    type: "DELETE",
+                    url: 'events/'+id,
+                    data: '_token=XlxQcVkbku1Lv45NLScLQOupW3UfIP6ibGhqzoRE',
+                    success: function(msg){
+                        tr.fadeOut();
+                    }
+                });
+                $(this).closest("tr").remove();
+            }
+        });
+    </script>
+</body>
+</html>

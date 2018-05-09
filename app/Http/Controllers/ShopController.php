@@ -23,6 +23,7 @@ class ShopController extends Controller
     //商家个人中心
     public function index(){
         //这里判断审核状态 session()的状态值
+        //显示本店
         return view('shop.index');
     }
 

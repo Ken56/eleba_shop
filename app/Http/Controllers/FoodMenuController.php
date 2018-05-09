@@ -165,12 +165,12 @@ class FoodMenuController extends Controller
     //菜品删除
     public function destroy (FoodMenu $FoodMenu){
         $FoodMenu->delete();
-        return redirect()->route('food_menu.index');
+//        return redirect()->route('food_menu.index');
     }
 
     //菜谱详情查看
     public function show(FoodMenu $FoodMenu){
-        return redirect()->route('food_menu.show',compact('FoodMenu'));
+        return view('foodmenu.show',compact('FoodMenu'));
     }
 
 

@@ -39,7 +39,7 @@ Route::post('/upload','UploaderController@upload');
 Route::get('shenghe',function (){
     return view('sessions.shenhebuguo');
 })->name('shenghe');
-//>>平台活动管理
+//>>活动管理
 Route::resource('/activity','ActivityController');
 //商户端- 订单管理
 Route::resource('/order','OrderController');
